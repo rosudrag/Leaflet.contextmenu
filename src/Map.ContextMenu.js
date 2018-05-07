@@ -1,3 +1,5 @@
+import L from "leaflet";
+
 L.Map.mergeOptions({
     contextmenuItems: []
 });
@@ -87,7 +89,7 @@ L.Map.ContextMenu = L.Handler.extend({
 
     insertItem: function (options) {
 
-        index = options.index !== undefined ? options.index : this._items.length;
+        var index = options.index !== undefined ? options.index : this._items.length;
 
         var item = this._createItem({
             container: this._container,
