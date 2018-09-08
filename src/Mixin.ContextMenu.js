@@ -1,3 +1,5 @@
+import L from "leaflet";
+
 L.Mixin.ContextMenu = {
     bindContextMenu: function (options) {
         L.setOptions(this, options);
@@ -60,14 +62,14 @@ L.Mixin.ContextMenu = {
                 //add item only if it doesn't exist
                 if (!this._map.contextmenu.itemAvailable(this._items[i])) {
                     itemOptions = this.options.contextmenuItems[i];
-                    
+
                     var options = {
-                        options: itemOptions, 
+                        options: itemOptions,
                         index: itemOptions.index,
                         isNotMainItem: true
                     }
-                    
-                    
+
+
                     this._items.push(this._map.contextmenu.insertItem(options));
                 }
                 //show it if it exists
@@ -85,7 +87,7 @@ L.Mixin.ContextMenu = {
 
     _hideContextMenu: function () {
         var i, l;
-        
+
         for (i = 0, l = this._items.length; i < l; i++) {
             this._map.contextmenu.hideItem(this._items[i]);
         }
@@ -93,8 +95,8 @@ L.Mixin.ContextMenu = {
         if (!this.options.contextmenuInheritItems) {
             this._map.contextmenu.showAllMainItems();
         }
-        
-        
+
+
     }
 };
 
